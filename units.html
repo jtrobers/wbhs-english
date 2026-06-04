@@ -15,7 +15,6 @@
       --ink: #211f22;
       --muted: #6f6258;
       --line: #ddcfc0;
-      --white: #ffffff;
     }
 
     * { box-sizing: border-box; }
@@ -219,42 +218,71 @@
 
     .unit-card {
       display: grid;
-      grid-template-columns: 95px minmax(0, 1fr) 190px;
+      grid-template-columns: 180px minmax(0, 1fr) 210px;
       background: var(--paper);
       border: 1px solid var(--line);
       border-left: 8px solid var(--terrier-orange);
       box-shadow: 0 8px 22px rgba(75,31,35,.07);
       overflow: hidden;
+      min-height: 175px;
     }
 
     .unit-number {
       background: var(--byrd-maroon);
       color: white;
-      display: grid;
-      place-items: center;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      padding: 24px 16px;
       text-align: center;
-      padding: 18px;
-      font-size: 30px;
-      letter-spacing: 1px;
+      min-width: 180px;
     }
 
-    .unit-number span {
-      display: block;
+    .unit-label {
       color: var(--terrier-orange);
-      font-size: 11px;
-      letter-spacing: 1px;
+      font-size: 16px;
+      letter-spacing: 3px;
       text-transform: uppercase;
-      margin-top: 6px;
+      margin-bottom: 10px;
+      font-weight: bold;
+    }
+
+    .unit-id {
+      font-size: 60px;
+      line-height: 1;
+      margin-bottom: 14px;
+      color: white;
+      font-weight: bold;
+    }
+
+    .unit-line {
+      width: 90px;
+      height: 2px;
+      background: var(--terrier-orange);
+      margin-bottom: 14px;
+    }
+
+    .unit-name {
+      color: var(--terrier-orange);
+      font-size: 18px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      font-weight: bold;
+      line-height: 1.25;
     }
 
     .unit-body {
-      padding: 24px 26px;
+      padding: 28px 32px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
     }
 
     .unit-body h3 {
       margin: 0 0 8px;
       color: var(--byrd-maroon);
-      font-size: 23px;
+      font-size: 25px;
       font-weight: normal;
       letter-spacing: 1px;
       text-transform: uppercase;
@@ -328,7 +356,7 @@
 
     @media (max-width: 1050px) {
       .unit-card {
-        grid-template-columns: 82px minmax(0, 1fr);
+        grid-template-columns: 180px minmax(0, 1fr);
       }
 
       .unit-action {
@@ -343,13 +371,6 @@
     @media (max-width: 900px) {
       header { flex-direction: column; }
       nav { justify-content: center; }
-      .unit-card {
-        grid-template-columns: 1fr;
-      }
-      .unit-action {
-        border-left: none;
-        border-top: 1px solid var(--line);
-      }
     }
 
     @media (max-width: 680px) {
@@ -363,6 +384,21 @@
       .hero { padding: 42px 24px; }
       .hero h2 { font-size: 40px; }
       .hero p { font-size: 18px; }
+
+      .unit-card {
+        grid-template-columns: 1fr;
+      }
+
+      .unit-number {
+        min-width: 0;
+        min-height: 160px;
+      }
+
+      .unit-action {
+        grid-column: auto;
+        place-items: center;
+        justify-content: center;
+      }
     }
   </style>
 </head>
@@ -401,7 +437,12 @@
 
     <section class="units" aria-label="English 11 unit list">
       <article class="unit-card">
-        <div class="unit-number">01<span>Foundations</span></div>
+        <div class="unit-number">
+          <div class="unit-label">Unit</div>
+          <div class="unit-id">01</div>
+          <div class="unit-line"></div>
+          <div class="unit-name">Foundations</div>
+        </div>
         <div class="unit-body">
           <h3>Colonial & Revolutionary Voices</h3>
           <p>Early American writing, exploration, belief, persuasion, independence, and the beginning of national identity.</p>
@@ -411,7 +452,12 @@
       </article>
 
       <article class="unit-card">
-        <div class="unit-number">02<span>Romanticism</span></div>
+        <div class="unit-number">
+          <div class="unit-label">Unit</div>
+          <div class="unit-id">02</div>
+          <div class="unit-line"></div>
+          <div class="unit-name">Romanticism</div>
+        </div>
         <div class="unit-body">
           <h3>Romanticism & Individualism</h3>
           <p>Nature, imagination, emotion, the individual spirit, dark romanticism, and the search for meaning.</p>
@@ -421,7 +467,12 @@
       </article>
 
       <article class="unit-card">
-        <div class="unit-number">03<span>Realism</span></div>
+        <div class="unit-number">
+          <div class="unit-label">Unit</div>
+          <div class="unit-id">03</div>
+          <div class="unit-line"></div>
+          <div class="unit-name">Realism</div>
+        </div>
         <div class="unit-body">
           <h3>Realism & The American Experience</h3>
           <p>Everyday life, social change, moral choices, class, conflict, and the voices of ordinary people.</p>
@@ -431,7 +482,12 @@
       </article>
 
       <article class="unit-card">
-        <div class="unit-number">04<span>Modernism</span></div>
+        <div class="unit-number">
+          <div class="unit-label">Unit</div>
+          <div class="unit-id">04</div>
+          <div class="unit-line"></div>
+          <div class="unit-name">Modernism</div>
+        </div>
         <div class="unit-body">
           <h3>Modernism & A Changing World</h3>
           <p>War, rapid change, uncertainty, fractured identity, new forms of writing, and the search for truth.</p>
@@ -441,7 +497,12 @@
       </article>
 
       <article class="unit-card">
-        <div class="unit-number">05<span>Contemporary</span></div>
+        <div class="unit-number">
+          <div class="unit-label">Unit</div>
+          <div class="unit-id">05</div>
+          <div class="unit-line"></div>
+          <div class="unit-name">Contemporary</div>
+        </div>
         <div class="unit-body">
           <h3>Contemporary American Voices</h3>
           <p>Modern texts that explore identity, justice, community, culture, belonging, and America today.</p>
