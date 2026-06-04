@@ -219,7 +219,7 @@
 
     .unit-card {
       display: grid;
-      grid-template-columns: 120px 1fr 210px;
+      grid-template-columns: 95px minmax(0, 1fr) 190px;
       background: var(--paper);
       border: 1px solid var(--line);
       border-left: 8px solid var(--terrier-orange);
@@ -234,27 +234,27 @@
       place-items: center;
       text-align: center;
       padding: 18px;
-      font-size: 34px;
-      letter-spacing: 2px;
+      font-size: 30px;
+      letter-spacing: 1px;
     }
 
     .unit-number span {
       display: block;
       color: var(--terrier-orange);
-      font-size: 14px;
-      letter-spacing: 2px;
+      font-size: 11px;
+      letter-spacing: 1px;
       text-transform: uppercase;
       margin-top: 6px;
     }
 
     .unit-body {
-      padding: 26px 28px;
+      padding: 24px 26px;
     }
 
     .unit-body h3 {
       margin: 0 0 8px;
       color: var(--byrd-maroon);
-      font-size: 25px;
+      font-size: 23px;
       font-weight: normal;
       letter-spacing: 1px;
       text-transform: uppercase;
@@ -324,6 +324,20 @@
       font-size: 14px;
       letter-spacing: 1px;
       border-top: 6px solid var(--terrier-orange);
+    }
+
+    @media (max-width: 1050px) {
+      .unit-card {
+        grid-template-columns: 82px minmax(0, 1fr);
+      }
+
+      .unit-action {
+        grid-column: 2;
+        border-left: none;
+        border-top: 1px solid var(--line);
+        justify-content: start;
+        place-items: center start;
+      }
     }
 
     @media (max-width: 900px) {
