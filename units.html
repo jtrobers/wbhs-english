@@ -218,7 +218,7 @@
 
     .unit-card {
       display: grid;
-      grid-template-columns: 180px minmax(0, 1fr) 210px;
+      grid-template-columns: 220px minmax(0, 1fr) 210px;
       background: var(--paper);
       border: 1px solid var(--line);
       border-left: 8px solid var(--terrier-orange);
@@ -236,7 +236,7 @@
       align-items: center;
       padding: 24px 16px;
       text-align: center;
-      min-width: 180px;
+      min-width: 220px;
     }
 
     .unit-label {
@@ -265,11 +265,13 @@
 
     .unit-name {
       color: var(--terrier-orange);
-      font-size: 18px;
-      letter-spacing: 2px;
+      font-size: 17px;
+      letter-spacing: 1.5px;
       text-transform: uppercase;
       font-weight: bold;
       line-height: 1.25;
+      max-width: 180px;
+      overflow-wrap: anywhere;
     }
 
     .unit-body {
@@ -356,7 +358,7 @@
 
     @media (max-width: 1050px) {
       .unit-card {
-        grid-template-columns: 180px minmax(0, 1fr);
+        grid-template-columns: 220px minmax(0, 1fr);
       }
 
       .unit-action {
@@ -501,7 +503,7 @@
           <div class="unit-label">Unit</div>
           <div class="unit-id">05</div>
           <div class="unit-line"></div>
-          <div class="unit-name">Contemporary</div>
+          <div class="unit-name">Contemporary<br>Voices</div>
         </div>
         <div class="unit-body">
           <h3>Contemporary American Voices</h3>
