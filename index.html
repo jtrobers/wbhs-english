@@ -1,0 +1,458 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>English 11 | William Byrd High School</title>
+  <style>
+    :root {
+      --maroon: #6f1d2a;
+      --maroon-dark: #44111a;
+      --gold: #c9a24a;
+      --cream: #f7f1e7;
+      --paper: #fffaf1;
+      --ink: #20242b;
+      --muted: #6d6257;
+      --line: #dacdb9;
+      --navy: #101b2a;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      background: var(--cream);
+      color: var(--ink);
+      font-family: Georgia, "Times New Roman", serif;
+      line-height: 1.5;
+    }
+
+    .top-strip {
+      background: var(--maroon);
+      color: white;
+      text-align: center;
+      padding: 8px 16px;
+      font-size: 13px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+    }
+
+    header {
+      background: var(--paper);
+      border-bottom: 1px solid var(--line);
+      padding: 24px 48px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 32px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 18px;
+    }
+
+    .seal {
+      width: 66px;
+      height: 66px;
+      border: 2px solid var(--maroon);
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+      color: var(--maroon);
+      background: #fffdf8;
+      box-shadow: inset 0 0 0 5px rgba(201,162,74,.18);
+      font-size: 30px;
+    }
+
+    .brand h1 {
+      margin: 0;
+      font-weight: normal;
+      letter-spacing: 4px;
+      color: var(--maroon-dark);
+      font-size: 36px;
+      text-transform: uppercase;
+    }
+
+    .brand p {
+      margin: -4px 0 0;
+      color: var(--muted);
+      letter-spacing: 4px;
+      font-size: 14px;
+      text-transform: uppercase;
+    }
+
+    nav {
+      display: flex;
+      gap: 26px;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+      font-size: 13px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+    }
+
+    nav a {
+      color: var(--ink);
+      text-decoration: none;
+      padding-bottom: 6px;
+      border-bottom: 1px solid transparent;
+    }
+
+    nav a.active,
+    nav a:hover {
+      color: var(--maroon);
+      border-bottom-color: var(--gold);
+    }
+
+    .hero {
+      min-height: 430px;
+      color: white;
+      padding: 60px 7vw;
+      display: grid;
+      grid-template-columns: minmax(300px, 650px) 1fr;
+      gap: 42px;
+      align-items: center;
+      background:
+        linear-gradient(90deg, rgba(68,17,26,.98), rgba(68,17,26,.82), rgba(16,27,42,.7)),
+        radial-gradient(circle at 80% 30%, rgba(201,162,74,.35), transparent 25%),
+        linear-gradient(135deg, #44111a 0%, #6f1d2a 48%, #101b2a 100%);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: "WB";
+      position: absolute;
+      right: 7vw;
+      bottom: -52px;
+      font-size: 230px;
+      letter-spacing: 8px;
+      color: rgba(255,255,255,.06);
+      font-weight: bold;
+    }
+
+    .hero h2 {
+      margin: 0;
+      font-size: 62px;
+      line-height: 1.05;
+      letter-spacing: 3px;
+      font-weight: normal;
+      text-transform: uppercase;
+    }
+
+    .divider {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      color: var(--gold);
+      margin: 18px 0 18px;
+    }
+
+    .divider::before,
+    .divider::after {
+      content: "";
+      height: 1px;
+      width: 120px;
+      background: var(--gold);
+    }
+
+    .hero p {
+      margin: 0;
+      max-width: 600px;
+      font-size: 23px;
+      color: #f1d99a;
+      font-style: italic;
+    }
+
+    .hero-buttons {
+      margin-top: 30px;
+      display: flex;
+      gap: 14px;
+      flex-wrap: wrap;
+    }
+
+    .button {
+      display: inline-block;
+      padding: 12px 18px;
+      border: 1px solid var(--gold);
+      color: white;
+      text-decoration: none;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      font-size: 13px;
+      background: rgba(255,255,255,.08);
+    }
+
+    .button.primary {
+      background: var(--gold);
+      color: var(--maroon-dark);
+      font-weight: bold;
+    }
+
+    .hero-card {
+      justify-self: end;
+      width: min(420px, 100%);
+      background: rgba(255,250,241,.1);
+      border: 1px solid rgba(255,255,255,.22);
+      padding: 30px;
+      backdrop-filter: blur(3px);
+      position: relative;
+      z-index: 1;
+    }
+
+    .hero-card h3 {
+      margin: 0 0 12px;
+      color: white;
+      font-size: 23px;
+      letter-spacing: 2px;
+      font-weight: normal;
+      text-transform: uppercase;
+    }
+
+    .hero-card p {
+      color: #f6efe1;
+      font-size: 17px;
+      font-style: normal;
+    }
+
+    main {
+      max-width: 1180px;
+      margin: 38px auto 66px;
+      padding: 0 24px;
+    }
+
+    .intro {
+      text-align: center;
+      max-width: 850px;
+      margin: 0 auto 34px;
+    }
+
+    .intro h2 {
+      margin: 0;
+      color: var(--maroon-dark);
+      font-weight: normal;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      font-size: 30px;
+    }
+
+    .intro p {
+      margin: 10px auto 0;
+      color: var(--muted);
+      font-size: 18px;
+    }
+
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+    }
+
+    .card {
+      background: rgba(255,250,241,.85);
+      border: 1px solid var(--line);
+      border-top: 5px solid var(--maroon);
+      padding: 26px;
+      min-height: 220px;
+      box-shadow: 0 8px 22px rgba(68,17,26,.06);
+    }
+
+    .card .icon {
+      color: var(--maroon);
+      font-size: 38px;
+      margin-bottom: 14px;
+    }
+
+    .card h3 {
+      margin: 0 0 8px;
+      font-size: 22px;
+      color: var(--maroon-dark);
+      font-weight: normal;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+    }
+
+    .card p {
+      margin: 0 0 18px;
+      font-size: 17px;
+    }
+
+    .card a {
+      color: var(--maroon);
+      text-decoration: none;
+      font-size: 13px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      border-bottom: 1px solid var(--gold);
+      padding-bottom: 4px;
+    }
+
+    .quote {
+      margin-top: 34px;
+      background: var(--paper);
+      border-left: 6px solid var(--gold);
+      padding: 30px 34px;
+      display: grid;
+      grid-template-columns: 1fr 260px;
+      gap: 24px;
+      align-items: center;
+    }
+
+    .quote p {
+      margin: 0;
+      font-size: 25px;
+      color: var(--maroon-dark);
+      font-style: italic;
+    }
+
+    .quote aside {
+      color: var(--muted);
+      font-size: 16px;
+      border-left: 1px solid var(--line);
+      padding-left: 22px;
+    }
+
+    footer {
+      background: var(--maroon-dark);
+      color: #f8edd9;
+      text-align: center;
+      padding: 22px;
+      font-size: 14px;
+      letter-spacing: 1px;
+    }
+
+    @media (max-width: 1000px) {
+      header { flex-direction: column; }
+      nav { justify-content: center; }
+      .hero { grid-template-columns: 1fr; }
+      .hero-card { justify-self: start; }
+      .cards { grid-template-columns: 1fr; }
+      .quote { grid-template-columns: 1fr; }
+      .quote aside {
+        border-left: none;
+        border-top: 1px solid var(--line);
+        padding-left: 0;
+        padding-top: 18px;
+      }
+    }
+
+    @media (max-width: 680px) {
+      header { padding: 22px; }
+      .brand { align-items: flex-start; }
+      .brand h1 { font-size: 28px; }
+      .brand p {
+        font-size: 12px;
+        letter-spacing: 2px;
+      }
+      .hero { padding: 42px 24px; }
+      .hero h2 { font-size: 42px; }
+      .hero p { font-size: 18px; }
+      .quote p { font-size: 21px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="top-strip">William Byrd High School • English 11 • American Literature</div>
+
+  <header>
+    <div class="brand">
+      <div class="seal" aria-hidden="true">📚</div>
+      <div>
+        <h1>English 11</h1>
+        <p>American Literature</p>
+      </div>
+    </div>
+
+    <nav aria-label="Main navigation">
+      <a href="index.html" class="active">Home</a>
+      <a href="units.html">Units</a>
+      <a href="resources.html">Resources</a>
+      <a href="writing.html">Writing Workshop</a>
+      <a href="ssr.html">SSR</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+  </header>
+
+  <section class="hero">
+    <div>
+      <h2>Stories That Shaped America</h2>
+      <div class="divider">★</div>
+      <p>A William Byrd High School course site for reading, writing, discussion, and discovery through American literature.</p>
+
+      <div class="hero-buttons">
+        <a class="button primary" href="units.html">View Units</a>
+        <a class="button" href="resources.html">Class Resources</a>
+      </div>
+    </div>
+
+    <aside class="hero-card">
+      <h3>Welcome, Terriers</h3>
+      <p>This site is a home base for English 11 materials, unit overviews, reading resources, writing support, and class links.</p>
+    </aside>
+  </section>
+
+  <main>
+    <section class="intro">
+      <h2>Course Home</h2>
+      <p>English 11 explores American literature through timeless questions about freedom, identity, responsibility, justice, and belonging.</p>
+    </section>
+
+    <section class="cards" aria-label="Homepage sections">
+      <article class="card">
+        <div class="icon">✒️</div>
+        <h3>Units</h3>
+        <p>Preview each major unit, from early American writing to contemporary voices.</p>
+        <a href="units.html">Go to Units</a>
+      </article>
+
+      <article class="card">
+        <div class="icon">📄</div>
+        <h3>Resources</h3>
+        <p>Find class handouts, study guides, vocabulary tools, and helpful links.</p>
+        <a href="resources.html">View Resources</a>
+      </article>
+
+      <article class="card">
+        <div class="icon">📝</div>
+        <h3>Writing Workshop</h3>
+        <p>Get support with thesis statements, paragraphs, evidence, analysis, and revision.</p>
+        <a href="writing.html">Writing Help</a>
+      </article>
+
+      <article class="card">
+        <div class="icon">📖</div>
+        <h3>SSR Library</h3>
+        <p>Explore high-interest reading options, weekly articles, and independent reading tools.</p>
+        <a href="ssr.html">Explore SSR</a>
+      </article>
+
+      <article class="card">
+        <div class="icon">🎓</div>
+        <h3>Opportunity Ready</h3>
+        <p>Find portfolio defense reminders, artifact ideas, and reflection support.</p>
+        <a href="portfolio.html">Portfolio Support</a>
+      </article>
+
+      <article class="card">
+        <div class="icon">🔗</div>
+        <h3>Canvas</h3>
+        <p>Use Canvas for official assignments, grades, submissions, due dates, and feedback.</p>
+        <a href="#">Open Canvas</a>
+      </article>
+    </section>
+
+    <section class="quote">
+      <p>“American literature is not just about old books. It is about the questions Americans keep asking.”</p>
+      <aside>
+        Read carefully. Think clearly. Use evidence. Add your voice to the conversation.
+      </aside>
+    </section>
+  </main>
+
+  <footer>
+    William Byrd High School • English 11 • American Literature
+  </footer>
+</body>
+</html>
