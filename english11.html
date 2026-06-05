@@ -1,90 +1,451 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>English 11 | William Byrd High School</title>
-<style>
-body{font-family:Georgia,serif;margin:0;background:#f8f1e6;color:#211f22}
-header{background:#4b1f23;color:white;padding:30px}
-h1{margin:0}
-main{max-width:1100px;margin:auto;padding:30px}
-.section-title{text-align:center;color:#4b1f23;letter-spacing:2px;text-transform:uppercase}
-.unit-list{display:grid;gap:14px}
-.unit-row{background:#fffaf2;border:1px solid #ddcfc0;border-left:8px solid #f05a1a;
-display:grid;grid-template-columns:120px 1fr auto;gap:22px;align-items:center;padding:18px}
-.unit-number{background:#4b1f23;color:white;text-align:center;padding:14px;font-size:30px;font-weight:bold}
-.unit-number span{display:block;color:#f05a1a;font-size:11px;text-transform:uppercase}
-.small-link{border:2px solid #f05a1a;padding:8px 12px;text-decoration:none;color:#4b1f23}
-@media(max-width:750px){.unit-row{grid-template-columns:1fr}}
-</style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>English 11 | William Byrd High School</title>
+  <style>
+    :root {
+      --maroon: #4b1f23;
+      --dark: #2b1013;
+      --orange: #f05a1a;
+      --orange-dark: #c84312;
+      --cream: #f8f1e6;
+      --paper: #fffaf2;
+      --ink: #211f22;
+      --muted: #6f6258;
+      --line: #ddcfc0;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      background: var(--cream);
+      color: var(--ink);
+      font-family: Georgia, "Times New Roman", serif;
+      line-height: 1.5;
+    }
+
+    .top-strip {
+      background: var(--maroon);
+      color: white;
+      text-align: center;
+      padding: 8px 16px;
+      font-size: 13px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      border-bottom: 4px solid var(--orange);
+    }
+
+    header {
+      background: var(--paper);
+      border-bottom: 1px solid var(--line);
+      padding: 24px 48px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 32px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 18px;
+    }
+
+    .wb-mark {
+      width: 84px;
+      height: 78px;
+      position: relative;
+      display: grid;
+      place-items: center;
+      color: var(--maroon);
+      font-size: 42px;
+      font-weight: 900;
+      letter-spacing: -8px;
+      line-height: 1;
+      text-shadow:
+        3px 0 var(--orange),
+        -3px 0 var(--orange),
+        0 3px var(--orange),
+        0 -3px var(--orange),
+        4px 4px 0 rgba(75,31,35,.25);
+      transform: skew(-6deg);
+    }
+
+    .wb-mark::before {
+      content: "";
+      position: absolute;
+      inset: 6px 2px 4px 8px;
+      border: 4px solid var(--orange);
+      border-radius: 44% 56% 48% 52%;
+      transform: rotate(-4deg) skew(-8deg);
+      opacity: .95;
+      z-index: -1;
+    }
+
+    .wb-mark::after {
+      content: "🐾";
+      position: absolute;
+      right: -10px;
+      bottom: -8px;
+      font-size: 20px;
+      letter-spacing: 0;
+      color: var(--orange);
+      text-shadow: none;
+      transform: skew(6deg) rotate(-12deg);
+    }
+
+    .brand h1 {
+      margin: 0;
+      font-weight: normal;
+      letter-spacing: 5px;
+      color: var(--maroon);
+      font-size: 36px;
+      text-transform: uppercase;
+    }
+
+    .brand p {
+      margin: -4px 0 0;
+      color: var(--orange-dark);
+      letter-spacing: 4px;
+      font-size: 14px;
+      text-transform: uppercase;
+      font-weight: bold;
+    }
+
+    nav {
+      display: flex;
+      gap: 28px;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+      font-size: 13px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      font-weight: bold;
+    }
+
+    nav a {
+      color: var(--ink);
+      text-decoration: none;
+      padding-bottom: 7px;
+      border-bottom: 2px solid transparent;
+    }
+
+    nav a.active,
+    nav a:hover {
+      color: var(--orange-dark);
+      border-bottom-color: var(--orange);
+    }
+
+    .hero {
+      color: white;
+      padding: 58px 7vw;
+      background:
+        linear-gradient(90deg, rgba(43,16,19,.98), rgba(75,31,35,.91), rgba(43,16,19,.78)),
+        radial-gradient(circle at 82% 35%, rgba(240,90,26,.35), transparent 28%),
+        linear-gradient(135deg, #2b1013 0%, #4b1f23 50%, #1c1b21 100%);
+      position: relative;
+      overflow: hidden;
+      border-bottom: 8px solid var(--orange);
+    }
+
+    .hero::before {
+      content: "11";
+      position: absolute;
+      right: 8vw;
+      bottom: -64px;
+      font-size: 230px;
+      color: rgba(255,255,255,.06);
+      font-weight: bold;
+      letter-spacing: 8px;
+    }
+
+    .hero h2 {
+      margin: 0;
+      font-size: 60px;
+      line-height: 1.04;
+      letter-spacing: 3px;
+      font-weight: normal;
+      text-transform: uppercase;
+      position: relative;
+      z-index: 1;
+    }
+
+    .hero p {
+      margin: 16px 0 0;
+      max-width: 780px;
+      font-size: 22px;
+      color: #ffd8bf;
+      font-style: italic;
+      position: relative;
+      z-index: 1;
+    }
+
+    main {
+      max-width: 1180px;
+      margin: 38px auto 66px;
+      padding: 0 24px;
+    }
+
+    .intro {
+      text-align: center;
+      max-width: 880px;
+      margin: 0 auto 34px;
+    }
+
+    .intro h2 {
+      margin: 0;
+      color: var(--maroon);
+      font-weight: normal;
+      letter-spacing: 4px;
+      text-transform: uppercase;
+      font-size: 34px;
+    }
+
+    .intro p {
+      margin: 10px auto 0;
+      color: var(--muted);
+      font-size: 18px;
+    }
+
+    .banner-list {
+      display: grid;
+      gap: 14px;
+    }
+
+    .banner-row {
+      background: var(--paper);
+      border: 1px solid var(--line);
+      border-left: 8px solid var(--orange);
+      display: grid;
+      grid-template-columns: 155px 1fr auto;
+      align-items: center;
+      gap: 22px;
+      padding: 18px 22px;
+      box-shadow: 0 8px 22px rgba(75,31,35,.06);
+    }
+
+    .banner-label {
+      background: var(--maroon);
+      color: white;
+      padding: 16px 12px;
+      text-align: center;
+      font-size: 30px;
+      font-weight: bold;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+    }
+
+    .banner-label span {
+      display: block;
+      color: var(--orange);
+      font-size: 11px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      margin-top: 3px;
+    }
+
+    .welcome-label {
+      font-size: 19px;
+      line-height: 1.15;
+      padding: 18px 12px;
+    }
+
+    .banner-row h3 {
+      margin: 0 0 4px;
+      color: var(--maroon);
+      font-size: 21px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      font-weight: normal;
+    }
+
+    .banner-row p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 16px;
+    }
+
+    .small-link {
+      color: var(--maroon);
+      text-decoration: none;
+      border: 2px solid var(--orange);
+      padding: 9px 13px;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      font-size: 12px;
+      font-weight: bold;
+      white-space: nowrap;
+    }
+
+    .small-link:hover {
+      background: var(--orange);
+      color: white;
+    }
+
+    .note {
+      margin-top: 34px;
+      background: var(--paper);
+      border-left: 8px solid var(--orange);
+      padding: 28px 34px;
+    }
+
+    .note p {
+      margin: 0;
+      color: var(--maroon);
+      font-size: 20px;
+      font-style: italic;
+    }
+
+    footer {
+      background: var(--dark);
+      color: #f8ede6;
+      text-align: center;
+      padding: 22px;
+      font-size: 14px;
+      letter-spacing: 1px;
+      border-top: 6px solid var(--orange);
+    }
+
+    @media (max-width: 1050px) {
+      header { flex-direction: column; }
+      nav { justify-content: center; }
+      .banner-row {
+        grid-template-columns: 145px 1fr;
+      }
+      .small-link {
+        grid-column: 2;
+        width: fit-content;
+      }
+    }
+
+    @media (max-width: 700px) {
+      header { padding: 22px; }
+      .brand { align-items: flex-start; }
+      .brand h1 { font-size: 30px; }
+      .brand p {
+        font-size: 12px;
+        letter-spacing: 2px;
+      }
+      nav {
+        gap: 18px;
+        font-size: 13px;
+      }
+      .hero { padding: 44px 24px; }
+      .hero h2 { font-size: 40px; }
+      .hero p { font-size: 18px; }
+      .banner-row {
+        grid-template-columns: 1fr;
+      }
+      .banner-label {
+        width: 145px;
+      }
+      .welcome-label {
+        width: 165px;
+      }
+      .small-link {
+        grid-column: auto;
+      }
+    }
+  </style>
 </head>
 <body>
-<header>
-<h1>English 11</h1>
-<p>American Literature</p>
-</header>
+  <div class="top-strip">William Byrd High School • Terrier Pride • English 11</div>
 
-<main>
-<h2 class="section-title" id="units">English 11 Units</h2>
+  <header>
+    <div class="brand">
+      <div class="wb-mark" aria-hidden="true">WB</div>
+      <div>
+        <h1>English 11</h1>
+        <p>American Literature</p>
+      </div>
+    </div>
 
-<section class="unit-list">
+    <nav aria-label="Main navigation">
+      <a href="index.html">Home</a>
+      <a href="levels.html" class="active">Levels</a>
+      <a href="resources.html">Resources</a>
+    </nav>
+  </header>
 
-<article class="unit-row">
-<div class="unit-number">00<span>Unit</span></div>
-<div>
-<h3>Building Our Classroom Community</h3>
-<p>Course expectations, syllabus review, classroom procedures, digital tools, goal setting, and community-building activities.</p>
-</div>
-<a class="small-link" href="classroom-community.html">Explore</a>
-</article>
+  <section class="hero">
+    <h2>American Stories.<br><span style="color:#ff7a2b;">Timeless Questions.</span></h2>
+    <p>English 11 explores American literature through the voices, conflicts, arguments, and ideas that shaped the American experience.</p>
+  </section>
 
-<article class="unit-row">
-<div class="unit-number">01<span>Unit</span></div>
-<div>
-<h3>Colonial & Revolutionary Voices</h3>
-<p>Early American writing, persuasion, independence, and the foundations of national identity.</p>
-</div>
-<a class="small-link" href="#">Explore</a>
-</article>
+  <main>
+    <section class="intro">
+      <h2>English 11</h2>
+      <p>Start with course expectations and classroom setup, then move into the major literature units or future skill-based modules.</p>
+    </section>
 
-<article class="unit-row">
-<div class="unit-number">02<span>Unit</span></div>
-<div>
-<h3>Romanticism & Individualism</h3>
-<p>Nature, imagination, emotion, dark romanticism, and the individual voice.</p>
-</div>
-<a class="small-link" href="#">Explore</a>
-</article>
+    <section class="banner-list" aria-label="English 11 overview">
 
-<article class="unit-row">
-<div class="unit-number">03<span>Unit</span></div>
-<div>
-<h3>Realism & The American Experience</h3>
-<p>Everyday life, moral choices, class, conflict, and a changing nation.</p>
-</div>
-<a class="small-link" href="#">Explore</a>
-</article>
+      <article class="banner-row">
+        <div class="banner-label welcome-label">Welcome</div>
+        <div>
+          <h3>Welcome to English 11</h3>
+          <p>Course expectations, syllabus review, digital setup, Portrait Challenge, classroom routines, and goal setting.</p>
+        </div>
+        <a class="small-link" href="classroom-community.html">Explore</a>
+      </article>
 
-<article class="unit-row">
-<div class="unit-number">04<span>Unit</span></div>
-<div>
-<h3>Modernism & A Changing World</h3>
-<p>War, uncertainty, new forms of writing, and the search for meaning.</p>
-</div>
-<a class="small-link" href="#">Explore</a>
-</article>
+      <article class="banner-row">
+        <div class="banner-label">01<span>Unit</span></div>
+        <div>
+          <h3>Colonial & Revolutionary Voices</h3>
+          <p>Early American writing, persuasion, independence, and the foundations of national identity.</p>
+        </div>
+        <a class="small-link" href="#">Explore</a>
+      </article>
 
-<article class="unit-row">
-<div class="unit-number">05<span>Unit</span></div>
-<div>
-<h3>Contemporary American Voices</h3>
-<p>Identity, justice, community, perspective, and America today.</p>
-</div>
-<a class="small-link" href="#">Explore</a>
-</article>
+      <article class="banner-row">
+        <div class="banner-label">02<span>Unit</span></div>
+        <div>
+          <h3>Romanticism & Individualism</h3>
+          <p>Nature, imagination, emotion, dark romanticism, and the individual voice.</p>
+        </div>
+        <a class="small-link" href="#">Explore</a>
+      </article>
 
-</section>
-</main>
+      <article class="banner-row">
+        <div class="banner-label">03<span>Unit</span></div>
+        <div>
+          <h3>Realism & The American Experience</h3>
+          <p>Everyday life, moral choices, class, conflict, and a changing nation.</p>
+        </div>
+        <a class="small-link" href="#">Explore</a>
+      </article>
+
+      <article class="banner-row">
+        <div class="banner-label">04<span>Unit</span></div>
+        <div>
+          <h3>Modernism & A Changing World</h3>
+          <p>War, uncertainty, new forms of writing, and the search for meaning.</p>
+        </div>
+        <a class="small-link" href="#">Explore</a>
+      </article>
+
+      <article class="banner-row">
+        <div class="banner-label">05<span>Unit</span></div>
+        <div>
+          <h3>Contemporary American Voices</h3>
+          <p>Identity, justice, community, perspective, and America today.</p>
+        </div>
+        <a class="small-link" href="#">Explore</a>
+      </article>
+
+    </section>
+
+    <section class="note">
+      <p>This structure can shift later from literature units to skill-based modules if that better supports General English 11 and the Virginia SOLs.</p>
+    </section>
+  </main>
+
+  <footer>
+    William Byrd High School • English 11 • American Literature
+  </footer>
 </body>
 </html>
