@@ -4,207 +4,202 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Welcome to English 11</title>
-
 <style>
 :root{
- --maroon:#4b1f23;
- --orange:#f05a1a;
- --cream:#f8f1e6;
- --paper:#fffaf2;
- --dark:#2b1013;
- --line:#ddcfc0;
- --text:#211f22;
- --muted:#6f6258;
+--maroon:#4b1f23;
+--orange:#f05a1a;
+--cream:#f8f1e6;
+--paper:#fffaf2;
+--line:#ddcfc0;
+--dark:#2b1013;
+--text:#211f22;
+--muted:#6f6258;
 }
-
 *{box-sizing:border-box;}
-
 body{
- margin:0;
- background:var(--cream);
- font-family:Georgia, "Times New Roman", serif;
- color:var(--text);
+margin:0;
+font-family:Georgia,"Times New Roman",serif;
+background:var(--cream);
+color:var(--text);
 }
-
 .topbar{
- background:var(--maroon);
- color:white;
- text-align:center;
- padding:10px;
- letter-spacing:2px;
- text-transform:uppercase;
- border-bottom:4px solid var(--orange);
+background:var(--maroon);
+color:white;
+text-align:center;
+padding:10px;
+letter-spacing:2px;
+text-transform:uppercase;
+border-bottom:4px solid var(--orange);
 }
-
 .hero{
- background:linear-gradient(135deg,#2b1013,#4b1f23);
- color:white;
- padding:60px 30px;
- border-bottom:8px solid var(--orange);
+background:linear-gradient(135deg,#2b1013,#4b1f23);
+color:white;
+padding:60px 30px;
+border-bottom:8px solid var(--orange);
 }
-
 .hero h1{
- margin:0;
- font-size:56px;
- font-weight:normal;
- text-transform:uppercase;
- letter-spacing:3px;
+margin:0;
+font-size:58px;
+font-weight:normal;
+text-transform:uppercase;
+letter-spacing:3px;
 }
-
 .hero p{
- max-width:800px;
- font-size:20px;
- color:#ffd8bf;
+font-size:22px;
+color:#ffd8bf;
+margin-top:12px;
 }
-
 .container{
- max-width:1100px;
- margin:40px auto;
- padding:0 20px;
+max-width:1100px;
+margin:40px auto;
+padding:0 20px;
 }
-
-.intro{
- text-align:center;
- margin-bottom:30px;
+.section{
+background:var(--paper);
+border-left:8px solid var(--orange);
+border:1px solid var(--line);
+padding:28px;
+margin-bottom:22px;
 }
-
-.intro h2{
- color:var(--maroon);
- text-transform:uppercase;
- letter-spacing:3px;
- font-weight:normal;
+.section h2{
+margin-top:0;
+color:var(--maroon);
+text-transform:uppercase;
+letter-spacing:2px;
+font-weight:normal;
 }
-
-.banner{
- background:var(--paper);
- border-left:8px solid var(--orange);
- border:1px solid var(--line);
- padding:22px;
- margin-bottom:16px;
- display:grid;
- grid-template-columns:1fr auto;
- gap:20px;
- align-items:center;
- box-shadow:0 6px 18px rgba(0,0,0,.05);
+.activities{
+display:grid;
+gap:14px;
 }
-
-.banner h3{
- margin:0 0 6px 0;
- color:var(--maroon);
- text-transform:uppercase;
- font-weight:normal;
+.activity{
+display:grid;
+grid-template-columns:1fr auto;
+gap:20px;
+align-items:center;
+padding:18px;
+border:1px solid var(--line);
+background:white;
 }
-
-.banner p{
- margin:0;
- color:var(--muted);
+.activity strong{
+display:block;
+color:var(--maroon);
+font-size:18px;
+margin-bottom:4px;
 }
-
-.button{
- text-decoration:none;
- color:var(--maroon);
- border:2px solid var(--orange);
- padding:10px 16px;
- text-transform:uppercase;
- letter-spacing:2px;
- font-size:12px;
- font-weight:bold;
+.activity span{
+color:var(--muted);
 }
-
-.button:hover{
- background:var(--orange);
- color:white;
+.btn{
+text-decoration:none;
+border:2px solid var(--orange);
+padding:10px 16px;
+color:var(--maroon);
+font-weight:bold;
+letter-spacing:2px;
+text-transform:uppercase;
+font-size:12px;
 }
-
-.footer-note{
- background:var(--paper);
- border-left:8px solid var(--orange);
- padding:24px;
- margin-top:30px;
- font-style:italic;
- color:var(--maroon);
+.btn:hover{
+background:var(--orange);
+color:white;
 }
-
+.footer-box{
+background:var(--paper);
+border-left:8px solid var(--orange);
+padding:28px;
+font-style:italic;
+color:var(--maroon);
+}
 @media(max-width:700px){
- .hero h1{font-size:40px;}
- .banner{
-  grid-template-columns:1fr;
- }
+.hero h1{font-size:42px;}
+.activity{grid-template-columns:1fr;}
 }
 </style>
 </head>
-
 <body>
 
-<div class="topbar">
-William Byrd High School • English 11
-</div>
+<div class="topbar">William Byrd High School • English 11</div>
 
 <section class="hero">
 <h1>Welcome to English 11</h1>
-<p>
-Start the year with confidence. Learn course expectations,
-get organized, build classroom community, and prepare for success.
-</p>
+<p>Getting Started for a Successful Year</p>
 </section>
 
 <div class="container">
 
-<div class="intro">
-<h2>Getting Started</h2>
-<p>Complete these sections to become familiar with English 11.</p>
+<div class="section">
+<h2>Overview</h2>
+<p>
+This module is designed to help students become familiar with course expectations,
+establish classroom routines, organize digital materials, build classroom community,
+and prepare for success in English 11.
+</p>
 </div>
 
-<div class="banner">
+<div class="section">
+<h2>Activities</h2>
+
+<div class="activities">
+
+<div class="activity">
 <div>
-<h3>Start Here</h3>
-<p>Meet your teachers, learn about the course, and discover what to expect this year.</p>
+<strong>Start Here</strong>
+<span>Meet your teachers and learn what to expect this year.</span>
 </div>
-<a class="button" href="#">Explore</a>
+<a href="#" class="btn">Explore</a>
 </div>
 
-<div class="banner">
+<div class="activity">
 <div>
-<h3>Syllabus</h3>
-<p>Review grading, reassessment opportunities, attendance expectations, and communication procedures.</p>
+<strong>Syllabus</strong>
+<span>Review grading, reassessment opportunities, attendance expectations, and communication procedures.</span>
 </div>
-<a class="button" href="#">Explore</a>
+<a href="#" class="btn">Explore</a>
 </div>
 
-<div class="banner">
+<div class="activity">
 <div>
-<h3>Class Organization</h3>
-<p>Learn how Canvas, OneDrive, and Synergy work together to keep you organized and informed.</p>
+<strong>Class Organization</strong>
+<span>Learn how Canvas, OneDrive, and Synergy work together to keep you organized.</span>
 </div>
-<a class="button" href="#">Explore</a>
+<a href="#" class="btn">Explore</a>
 </div>
 
-<div class="banner">
+<div class="activity">
 <div>
-<h3>Class Procedures</h3>
-<p>Understand daily routines, participation expectations, assignment submission, and how to get help.</p>
+<strong>Class Procedures</strong>
+<span>Understand daily routines, participation expectations, assignment submission, and how to get help.</span>
 </div>
-<a class="button" href="#">Explore</a>
+<a href="#" class="btn">Explore</a>
 </div>
 
-<div class="banner">
+<div class="activity">
 <div>
-<h3>Portrait Challenge</h3>
-<p>Create a visual representation of yourself and share your interests, strengths, and experiences.</p>
+<strong>Portrait Challenge</strong>
+<span>Create a visual representation of yourself and share your interests, strengths, and experiences.</span>
 </div>
-<a class="button" href="#">Explore</a>
+<a href="#" class="btn">Explore</a>
 </div>
 
-<div class="banner">
+<div class="activity">
 <div>
-<h3>Goal Setting</h3>
-<p>Reflect on your strengths, challenges, and goals for English 11 this year.</p>
+<strong>Goal Setting</strong>
+<span>Reflect on your strengths, challenges, and goals for English 11.</span>
 </div>
-<a class="button" href="#">Explore</a>
+<a href="#" class="btn">Explore</a>
 </div>
 
-<div class="footer-note">
-This page serves as the onboarding hub for English 11. Additional resources and activities can be added throughout the year.
+</div>
+</div>
+
+<div class="section">
+<h2>Essential Question</h2>
+<p><strong>How can I set myself up for success in English 11?</strong></p>
+</div>
+
+<div class="footer-box">
+This module is designed to help students become organized, connected, and prepared for the year.
 </div>
 
 </div>
