@@ -1,451 +1,73 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>English 11 | William Byrd High School</title>
-  <style>
-    :root {
-      --maroon: #4b1f23;
-      --dark: #2b1013;
-      --orange: #f05a1a;
-      --orange-dark: #c84312;
-      --cream: #f8f1e6;
-      --paper: #fffaf2;
-      --ink: #211f22;
-      --muted: #6f6258;
-      --line: #ddcfc0;
-    }
-
-    * { box-sizing: border-box; }
-
-    body {
-      margin: 0;
-      background: var(--cream);
-      color: var(--ink);
-      font-family: Georgia, "Times New Roman", serif;
-      line-height: 1.5;
-    }
-
-    .top-strip {
-      background: var(--maroon);
-      color: white;
-      text-align: center;
-      padding: 8px 16px;
-      font-size: 13px;
-      letter-spacing: 2px;
-      text-transform: uppercase;
-      border-bottom: 4px solid var(--orange);
-    }
-
-    header {
-      background: var(--paper);
-      border-bottom: 1px solid var(--line);
-      padding: 24px 48px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      gap: 32px;
-    }
-
-    .brand {
-      display: flex;
-      align-items: center;
-      gap: 18px;
-    }
-
-    .wb-mark {
-      width: 84px;
-      height: 78px;
-      position: relative;
-      display: grid;
-      place-items: center;
-      color: var(--maroon);
-      font-size: 42px;
-      font-weight: 900;
-      letter-spacing: -8px;
-      line-height: 1;
-      text-shadow:
-        3px 0 var(--orange),
-        -3px 0 var(--orange),
-        0 3px var(--orange),
-        0 -3px var(--orange),
-        4px 4px 0 rgba(75,31,35,.25);
-      transform: skew(-6deg);
-    }
-
-    .wb-mark::before {
-      content: "";
-      position: absolute;
-      inset: 6px 2px 4px 8px;
-      border: 4px solid var(--orange);
-      border-radius: 44% 56% 48% 52%;
-      transform: rotate(-4deg) skew(-8deg);
-      opacity: .95;
-      z-index: -1;
-    }
-
-    .wb-mark::after {
-      content: "🐾";
-      position: absolute;
-      right: -10px;
-      bottom: -8px;
-      font-size: 20px;
-      letter-spacing: 0;
-      color: var(--orange);
-      text-shadow: none;
-      transform: skew(6deg) rotate(-12deg);
-    }
-
-    .brand h1 {
-      margin: 0;
-      font-weight: normal;
-      letter-spacing: 5px;
-      color: var(--maroon);
-      font-size: 36px;
-      text-transform: uppercase;
-    }
-
-    .brand p {
-      margin: -4px 0 0;
-      color: var(--orange-dark);
-      letter-spacing: 4px;
-      font-size: 14px;
-      text-transform: uppercase;
-      font-weight: bold;
-    }
-
-    nav {
-      display: flex;
-      gap: 28px;
-      flex-wrap: wrap;
-      justify-content: flex-end;
-      font-size: 13px;
-      letter-spacing: 2px;
-      text-transform: uppercase;
-      font-weight: bold;
-    }
-
-    nav a {
-      color: var(--ink);
-      text-decoration: none;
-      padding-bottom: 7px;
-      border-bottom: 2px solid transparent;
-    }
-
-    nav a.active,
-    nav a:hover {
-      color: var(--orange-dark);
-      border-bottom-color: var(--orange);
-    }
-
-    .hero {
-      color: white;
-      padding: 58px 7vw;
-      background:
-        linear-gradient(90deg, rgba(43,16,19,.98), rgba(75,31,35,.91), rgba(43,16,19,.78)),
-        radial-gradient(circle at 82% 35%, rgba(240,90,26,.35), transparent 28%),
-        linear-gradient(135deg, #2b1013 0%, #4b1f23 50%, #1c1b21 100%);
-      position: relative;
-      overflow: hidden;
-      border-bottom: 8px solid var(--orange);
-    }
-
-    .hero::before {
-      content: "11";
-      position: absolute;
-      right: 8vw;
-      bottom: -64px;
-      font-size: 230px;
-      color: rgba(255,255,255,.06);
-      font-weight: bold;
-      letter-spacing: 8px;
-    }
-
-    .hero h2 {
-      margin: 0;
-      font-size: 60px;
-      line-height: 1.04;
-      letter-spacing: 3px;
-      font-weight: normal;
-      text-transform: uppercase;
-      position: relative;
-      z-index: 1;
-    }
-
-    .hero p {
-      margin: 16px 0 0;
-      max-width: 780px;
-      font-size: 22px;
-      color: #ffd8bf;
-      font-style: italic;
-      position: relative;
-      z-index: 1;
-    }
-
-    main {
-      max-width: 1180px;
-      margin: 38px auto 66px;
-      padding: 0 24px;
-    }
-
-    .intro {
-      text-align: center;
-      max-width: 880px;
-      margin: 0 auto 34px;
-    }
-
-    .intro h2 {
-      margin: 0;
-      color: var(--maroon);
-      font-weight: normal;
-      letter-spacing: 4px;
-      text-transform: uppercase;
-      font-size: 34px;
-    }
-
-    .intro p {
-      margin: 10px auto 0;
-      color: var(--muted);
-      font-size: 18px;
-    }
-
-    .banner-list {
-      display: grid;
-      gap: 14px;
-    }
-
-    .banner-row {
-      background: var(--paper);
-      border: 1px solid var(--line);
-      border-left: 8px solid var(--orange);
-      display: grid;
-      grid-template-columns: 155px 1fr auto;
-      align-items: center;
-      gap: 22px;
-      padding: 18px 22px;
-      box-shadow: 0 8px 22px rgba(75,31,35,.06);
-    }
-
-    .banner-label {
-      background: var(--maroon);
-      color: white;
-      padding: 16px 12px;
-      text-align: center;
-      font-size: 30px;
-      font-weight: bold;
-      letter-spacing: 1px;
-      text-transform: uppercase;
-    }
-
-    .banner-label span {
-      display: block;
-      color: var(--orange);
-      font-size: 11px;
-      letter-spacing: 2px;
-      text-transform: uppercase;
-      margin-top: 3px;
-    }
-
-    .welcome-label {
-      font-size: 19px;
-      line-height: 1.15;
-      padding: 18px 12px;
-    }
-
-    .banner-row h3 {
-      margin: 0 0 4px;
-      color: var(--maroon);
-      font-size: 21px;
-      text-transform: uppercase;
-      letter-spacing: 1px;
-      font-weight: normal;
-    }
-
-    .banner-row p {
-      margin: 0;
-      color: var(--muted);
-      font-size: 16px;
-    }
-
-    .small-link {
-      color: var(--maroon);
-      text-decoration: none;
-      border: 2px solid var(--orange);
-      padding: 9px 13px;
-      text-transform: uppercase;
-      letter-spacing: 2px;
-      font-size: 12px;
-      font-weight: bold;
-      white-space: nowrap;
-    }
-
-    .small-link:hover {
-      background: var(--orange);
-      color: white;
-    }
-
-    .note {
-      margin-top: 34px;
-      background: var(--paper);
-      border-left: 8px solid var(--orange);
-      padding: 28px 34px;
-    }
-
-    .note p {
-      margin: 0;
-      color: var(--maroon);
-      font-size: 20px;
-      font-style: italic;
-    }
-
-    footer {
-      background: var(--dark);
-      color: #f8ede6;
-      text-align: center;
-      padding: 22px;
-      font-size: 14px;
-      letter-spacing: 1px;
-      border-top: 6px solid var(--orange);
-    }
-
-    @media (max-width: 1050px) {
-      header { flex-direction: column; }
-      nav { justify-content: center; }
-      .banner-row {
-        grid-template-columns: 145px 1fr;
-      }
-      .small-link {
-        grid-column: 2;
-        width: fit-content;
-      }
-    }
-
-    @media (max-width: 700px) {
-      header { padding: 22px; }
-      .brand { align-items: flex-start; }
-      .brand h1 { font-size: 30px; }
-      .brand p {
-        font-size: 12px;
-        letter-spacing: 2px;
-      }
-      nav {
-        gap: 18px;
-        font-size: 13px;
-      }
-      .hero { padding: 44px 24px; }
-      .hero h2 { font-size: 40px; }
-      .hero p { font-size: 18px; }
-      .banner-row {
-        grid-template-columns: 1fr;
-      }
-      .banner-label {
-        width: 145px;
-      }
-      .welcome-label {
-        width: 165px;
-      }
-      .small-link {
-        grid-column: auto;
-      }
-    }
-  </style>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>English 11 Course Map | William Byrd High School</title>
+<style>
+:root{--maroon:#4b1f23;--dark:#2b1013;--orange:#f05a1a;--cream:#f8f1e6;--paper:#fffaf2;--ink:#211f22;--muted:#6f6258;--line:#ddcfc0}
+*{box-sizing:border-box}
+body{margin:0;background:var(--cream);color:var(--ink);font-family:Georgia,"Times New Roman",serif;line-height:1.5}
+.top-strip{background:var(--maroon);color:#fff;text-align:center;padding:8px 16px;font-size:13px;letter-spacing:2px;text-transform:uppercase;border-bottom:4px solid var(--orange)}
+header{background:var(--paper);border-bottom:1px solid var(--line);padding:24px 48px;display:flex;justify-content:space-between;align-items:center;gap:32px}
+.brand{display:flex;align-items:center;gap:18px}
+.logo{width:84px;height:78px;display:grid;place-items:center;color:var(--maroon);font-size:42px;font-weight:900;letter-spacing:-8px;text-shadow:3px 0 var(--orange),-3px 0 var(--orange),0 3px var(--orange),0 -3px var(--orange),4px 4px 0 rgba(75,31,35,.25)}
+.brand h1{margin:0;font-weight:normal;letter-spacing:5px;color:var(--maroon);font-size:36px;text-transform:uppercase}
+.brand p{margin:-4px 0 0;color:#c84312;letter-spacing:4px;font-size:14px;text-transform:uppercase;font-weight:bold}
+nav{display:flex;gap:28px;flex-wrap:wrap;justify-content:flex-end;font-size:13px;letter-spacing:2px;text-transform:uppercase;font-weight:bold}
+nav a{color:var(--ink);text-decoration:none;padding-bottom:7px;border-bottom:2px solid transparent}
+nav a.active,nav a:hover{color:#c84312;border-bottom-color:var(--orange)}
+.hero{color:#fff;padding:58px 7vw;background:linear-gradient(90deg,rgba(43,16,19,.98),rgba(75,31,35,.91),rgba(43,16,19,.78)),linear-gradient(135deg,#2b1013 0%,#4b1f23 50%,#1c1b21 100%);border-bottom:8px solid var(--orange)}
+.hero h2{margin:0;font-size:60px;line-height:1.04;letter-spacing:3px;font-weight:normal;text-transform:uppercase}
+.hero p{margin:16px 0 0;max-width:830px;font-size:22px;color:#ffd8bf;font-style:italic}
+main{max-width:1180px;margin:38px auto 66px;padding:0 24px}
+.intro{text-align:center;max-width:900px;margin:0 auto 34px}
+.intro h2{margin:0;color:var(--maroon);font-weight:normal;letter-spacing:4px;text-transform:uppercase;font-size:34px}
+.intro p{margin:10px auto 0;color:var(--muted);font-size:18px}
+.course-map{display:grid;gap:14px}
+.module-row{background:var(--paper);border:1px solid var(--line);border-left:8px solid var(--orange);display:grid;grid-template-columns:175px 1fr auto;align-items:center;gap:22px;padding:18px 22px;box-shadow:0 8px 22px rgba(75,31,35,.06)}
+.module-label{background:var(--maroon);color:#fff;padding:16px 12px;text-align:center;font-size:28px;font-weight:bold;letter-spacing:1px;text-transform:uppercase}
+.module-label span{display:block;color:var(--orange);font-size:11px;letter-spacing:2px;text-transform:uppercase;margin-top:3px}
+.special-label{font-size:18px;line-height:1.15;padding:18px 12px}
+.module-row h3{margin:0 0 4px;color:var(--maroon);font-size:21px;text-transform:uppercase;letter-spacing:1px;font-weight:normal}
+.module-row p{margin:0;color:var(--muted);font-size:16px}
+.texts{margin-top:8px;font-size:14px;color:var(--ink)}
+.texts strong{color:#c84312;letter-spacing:1px;text-transform:uppercase;font-size:12px}
+.small-link{color:var(--maroon);text-decoration:none;border:2px solid var(--orange);padding:9px 13px;text-transform:uppercase;letter-spacing:2px;font-size:12px;font-weight:bold;white-space:nowrap}
+.small-link:hover{background:var(--orange);color:white}
+.note{margin-top:34px;background:var(--paper);border-left:8px solid var(--orange);padding:28px 34px}
+.note p{margin:0;color:var(--maroon);font-size:20px;font-style:italic}
+footer{background:var(--dark);color:#f8ede6;text-align:center;padding:22px;font-size:14px;letter-spacing:1px;border-top:6px solid var(--orange)}
+@media(max-width:1050px){header{flex-direction:column}nav{justify-content:center}.module-row{grid-template-columns:165px 1fr}.small-link{grid-column:2;width:fit-content}}
+@media(max-width:700px){header{padding:22px}.brand{align-items:flex-start}.brand h1{font-size:30px}.brand p{font-size:12px;letter-spacing:2px}nav{gap:18px;font-size:13px}.hero{padding:44px 24px}.hero h2{font-size:40px}.hero p{font-size:18px}.module-row{grid-template-columns:1fr}.module-label{width:165px}.special-label{width:190px}.small-link{grid-column:auto}}
+</style>
 </head>
 <body>
-  <div class="top-strip">William Byrd High School • Terrier Pride • English 11</div>
-
-  <header>
-    <div class="brand">
-      <div class="wb-mark" aria-hidden="true">WB</div>
-      <div>
-        <h1>English 11</h1>
-        <p>American Literature</p>
-      </div>
-    </div>
-
-    <nav aria-label="Main navigation">
-      <a href="index.html">Home</a>
-      <a href="levels.html" class="active">Levels</a>
-      <a href="resources.html">Resources</a>
-    </nav>
-  </header>
-
-  <section class="hero">
-    <h2>American Stories.<br><span style="color:#ff7a2b;">Timeless Questions.</span></h2>
-    <p>English 11 explores American literature through the voices, conflicts, arguments, and ideas that shaped the American experience.</p>
-  </section>
-
-  <main>
-    <section class="intro">
-      <h2>English 11</h2>
-      <p>Start with course expectations and classroom setup, then move into the major literature units or future skill-based modules.</p>
-    </section>
-
-    <section class="banner-list" aria-label="English 11 overview">
-
-      <article class="banner-row">
-        <div class="banner-label welcome-label">Welcome</div>
-        <div>
-          <h3>Welcome to English 11</h3>
-          <p>Course expectations, syllabus review, digital setup, Portrait Challenge, classroom routines, and goal setting.</p>
-        </div>
-        <a class="small-link" href="classroom-community.html">Explore</a>
-      </article>
-
-      <article class="banner-row">
-        <div class="banner-label">01<span>Unit</span></div>
-        <div>
-          <h3>Colonial & Revolutionary Voices</h3>
-          <p>Early American writing, persuasion, independence, and the foundations of national identity.</p>
-        </div>
-        <a class="small-link" href="#">Explore</a>
-      </article>
-
-      <article class="banner-row">
-        <div class="banner-label">02<span>Unit</span></div>
-        <div>
-          <h3>Romanticism & Individualism</h3>
-          <p>Nature, imagination, emotion, dark romanticism, and the individual voice.</p>
-        </div>
-        <a class="small-link" href="#">Explore</a>
-      </article>
-
-      <article class="banner-row">
-        <div class="banner-label">03<span>Unit</span></div>
-        <div>
-          <h3>Realism & The American Experience</h3>
-          <p>Everyday life, moral choices, class, conflict, and a changing nation.</p>
-        </div>
-        <a class="small-link" href="#">Explore</a>
-      </article>
-
-      <article class="banner-row">
-        <div class="banner-label">04<span>Unit</span></div>
-        <div>
-          <h3>Modernism & A Changing World</h3>
-          <p>War, uncertainty, new forms of writing, and the search for meaning.</p>
-        </div>
-        <a class="small-link" href="#">Explore</a>
-      </article>
-
-      <article class="banner-row">
-        <div class="banner-label">05<span>Unit</span></div>
-        <div>
-          <h3>Contemporary American Voices</h3>
-          <p>Identity, justice, community, perspective, and America today.</p>
-        </div>
-        <a class="small-link" href="#">Explore</a>
-      </article>
-
-    </section>
-
-    <section class="note">
-      <p>This structure can shift later from literature units to skill-based modules if that better supports General English 11 and the Virginia SOLs.</p>
-    </section>
-  </main>
-
-  <footer>
-    William Byrd High School • English 11 • American Literature
-  </footer>
+<div class="top-strip">William Byrd High School • Terrier Pride • English 11</div>
+<header>
+  <div class="brand"><div class="logo">WB</div><div><h1>English 11</h1><p>Course Map</p></div></div>
+  <nav><a href="index.html">Home</a><a href="levels.html" class="active">Levels</a><a href="resources.html">Resources</a></nav>
+</header>
+<section class="hero">
+  <h2>English 11<br><span style="color:#ff7a2b;">Course Map</span></h2>
+  <p>A visual shell for the year: welcome materials, major modules, signature texts, media literacy, and workplace readiness support.</p>
+</section>
+<main>
+<section class="intro"><h2>English 11</h2><p>This page gives students a clear view of the course structure. Each banner can eventually branch into its own module page.</p></section>
+<section class="course-map">
+<article class="module-row"><div class="module-label special-label">Welcome</div><div><h3>Welcome to English 11</h3><p>Course expectations, syllabus review, class organization, Portrait Challenge, classroom routines, and goal setting.</p><div class="texts"><strong>Includes:</strong> Canvas • OneDrive • Synergy • Class procedures</div></div><a class="small-link" href="classroom-community.html">Explore</a></article>
+<article class="module-row"><div class="module-label">01<span>Module</span></div><div><h3>Choices & Consequences</h3><p>How do our choices shape who we become?</p><div class="texts"><strong>Texts:</strong> Long Way Down • A Retrieved Reformation</div></div><a class="small-link" href="#">Explore</a></article>
+<article class="module-row"><div class="module-label">02<span>Module</span></div><div><h3>Fear, Rumors & Hysteria</h3><p>What happens when fear becomes more powerful than facts?</p><div class="texts"><strong>Texts:</strong> Monsters Are Due on Maple Street • The Crucible • I, Tituba • The Lottery</div></div><a class="small-link" href="#">Explore</a></article>
+<article class="module-row"><div class="module-label">03<span>Module</span></div><div><h3>Individuality & Conformity</h3><p>Who gets to decide who we should be?</p><div class="texts"><strong>Texts:</strong> Eye of the Beholder • Harrison Bergeron • The Scarlet Letter Ch. 2 • Story of an Hour • The Raven</div></div><a class="small-link" href="#">Explore</a></article>
+<article class="module-row"><div class="module-label">04<span>Module</span></div><div><h3>Mystery, Evidence & Truth</h3><p>How do we determine what really happened?</p><div class="texts"><strong>Texts:</strong> Old Hollywood Hotel • The Landlady • Lamb to the Slaughter • D.B. Cooper • Dyatlov Pass</div></div><a class="small-link" href="#">Explore</a></article>
+<article class="module-row"><div class="module-label">05<span>Module</span></div><div><h3>Technology & Humanity</h3><p>What happens when technology changes how humans live, think, and connect?</p><div class="texts"><strong>Texts:</strong> The Veldt • There Will Come Soft Rains • Where Is Everybody? • Media Literacy</div></div><a class="small-link" href="#">Explore</a></article>
+<article class="module-row"><div class="module-label">06<span>Module</span></div><div><h3>Stories That Matter</h3><p>Why do humans tell stories?</p><div class="texts"><strong>Texts:</strong> MAUS • Hero's Journey • Spider-Verse</div></div><a class="small-link" href="#">Explore</a></article>
+<article class="module-row"><div class="module-label">07<span>Module</span></div><div><h3>Communities & Leadership</h3><p>What makes a community successful?</p><div class="texts"><strong>Texts:</strong> Iroquois Constitution • Of Plymouth Plantation</div></div><a class="small-link" href="#">Explore</a></article>
+<article class="module-row"><div class="module-label special-label">Media<br>Literacy</div><div><h3>Media Literacy Mini Module</h3><p>How do media messages shape what we believe, buy, share, and trust?</p><div class="texts"><strong>Possible Focus:</strong> viral videos • influencers • AI content • advertising • source credibility</div></div><a class="small-link" href="#">Explore</a></article>
+<article class="module-row"><div class="module-label special-label">WorkKeys</div><div><h3>WorkKeys & Workplace Readiness</h3><p>Reading for real-world situations, workplace documents, career readiness, and targeted remediation support.</p><div class="texts"><strong>Focus:</strong> workplace reading • applied skills • practice assessments • test-taking strategies</div></div><a class="small-link" href="#">Explore</a></article>
+</section>
+<section class="note"><p>This is a flexible shell. Module titles, texts, and sequence can be adjusted as the course develops.</p></section>
+</main>
+<footer>William Byrd High School • English 11 • Course Map</footer>
 </body>
 </html>
