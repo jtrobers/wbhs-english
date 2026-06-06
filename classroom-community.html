@@ -1,484 +1,66 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Building Our Classroom Community | English 11</title>
-  <style>
-    :root {
-      --byrd-maroon: #4b1f23;
-      --byrd-maroon-dark: #2b1013;
-      --terrier-orange: #f05a1a;
-      --terrier-orange-dark: #c84312;
-      --cream: #f8f1e6;
-      --paper: #fffaf2;
-      --ink: #211f22;
-      --muted: #6f6258;
-      --line: #ddcfc0;
-    }
-
-    * { box-sizing: border-box; }
-
-    body {
-      margin: 0;
-      background: var(--cream);
-      color: var(--ink);
-      font-family: Georgia, "Times New Roman", serif;
-      line-height: 1.5;
-    }
-
-    .top-strip {
-      background: var(--byrd-maroon);
-      color: white;
-      text-align: center;
-      padding: 8px 16px;
-      font-size: 13px;
-      letter-spacing: 2px;
-      text-transform: uppercase;
-      border-bottom: 4px solid var(--terrier-orange);
-    }
-
-    header {
-      background: var(--paper);
-      border-bottom: 1px solid var(--line);
-      padding: 24px 48px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      gap: 32px;
-    }
-
-    .brand {
-      display: flex;
-      align-items: center;
-      gap: 18px;
-    }
-
-    .wb-mark {
-      width: 84px;
-      height: 78px;
-      position: relative;
-      display: grid;
-      place-items: center;
-      color: var(--byrd-maroon);
-      font-size: 42px;
-      font-weight: 900;
-      letter-spacing: -8px;
-      line-height: 1;
-      text-shadow:
-        3px 0 var(--terrier-orange),
-        -3px 0 var(--terrier-orange),
-        0 3px var(--terrier-orange),
-        0 -3px var(--terrier-orange),
-        4px 4px 0 rgba(75,31,35,.25);
-      transform: skew(-6deg);
-    }
-
-    .wb-mark::before {
-      content: "";
-      position: absolute;
-      inset: 6px 2px 4px 8px;
-      border: 4px solid var(--terrier-orange);
-      border-radius: 44% 56% 48% 52%;
-      transform: rotate(-4deg) skew(-8deg);
-      opacity: .95;
-      z-index: -1;
-    }
-
-    .wb-mark::after {
-      content: "🐾";
-      position: absolute;
-      right: -10px;
-      bottom: -8px;
-      font-size: 20px;
-      letter-spacing: 0;
-      color: var(--terrier-orange);
-      text-shadow: none;
-      transform: skew(6deg) rotate(-12deg);
-    }
-
-    .brand h1 {
-      margin: 0;
-      font-weight: normal;
-      letter-spacing: 5px;
-      color: var(--byrd-maroon);
-      font-size: 36px;
-      text-transform: uppercase;
-    }
-
-    .brand p {
-      margin: -4px 0 0;
-      color: var(--terrier-orange-dark);
-      letter-spacing: 4px;
-      font-size: 14px;
-      text-transform: uppercase;
-      font-weight: bold;
-    }
-
-    nav {
-      display: flex;
-      gap: 28px;
-      flex-wrap: wrap;
-      justify-content: flex-end;
-      font-size: 13px;
-      letter-spacing: 2px;
-      text-transform: uppercase;
-      font-weight: bold;
-    }
-
-    nav a {
-      color: var(--ink);
-      text-decoration: none;
-      padding-bottom: 7px;
-      border-bottom: 2px solid transparent;
-    }
-
-    nav a.active,
-    nav a:hover {
-      color: var(--terrier-orange-dark);
-      border-bottom-color: var(--terrier-orange);
-    }
-
-    .hero {
-      color: white;
-      padding: 62px 7vw;
-      background:
-        linear-gradient(90deg, rgba(43,16,19,.98), rgba(75,31,35,.91), rgba(43,16,19,.78)),
-        radial-gradient(circle at 82% 35%, rgba(240,90,26,.35), transparent 28%),
-        linear-gradient(135deg, #2b1013 0%, #4b1f23 50%, #1c1b21 100%);
-      position: relative;
-      overflow: hidden;
-      border-bottom: 8px solid var(--terrier-orange);
-    }
-
-    .hero::before {
-      content: "00";
-      position: absolute;
-      right: 8vw;
-      bottom: -58px;
-      font-size: 220px;
-      color: rgba(255,255,255,.06);
-      font-weight: bold;
-      letter-spacing: 8px;
-    }
-
-    .hero h2 {
-      margin: 0;
-      max-width: 850px;
-      font-size: 58px;
-      line-height: 1.04;
-      letter-spacing: 3px;
-      font-weight: normal;
-      text-transform: uppercase;
-      position: relative;
-      z-index: 1;
-    }
-
-    .hero p {
-      margin: 16px 0 0;
-      max-width: 780px;
-      font-size: 22px;
-      color: #ffd8bf;
-      font-style: italic;
-      position: relative;
-      z-index: 1;
-    }
-
-    main {
-      max-width: 1180px;
-      margin: 38px auto 66px;
-      padding: 0 24px;
-    }
-
-    .intro {
-      text-align: center;
-      max-width: 880px;
-      margin: 0 auto 34px;
-    }
-
-    .intro h2 {
-      margin: 0;
-      color: var(--byrd-maroon);
-      font-weight: normal;
-      letter-spacing: 3px;
-      text-transform: uppercase;
-      font-size: 30px;
-    }
-
-    .intro p {
-      margin: 10px auto 0;
-      color: var(--muted);
-      font-size: 18px;
-    }
-
-    .cards {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 18px;
-      margin-bottom: 34px;
-    }
-
-    .card {
-      background: rgba(255,250,242,.92);
-      border: 1px solid var(--line);
-      border-top: 6px solid var(--terrier-orange);
-      padding: 26px;
-      min-height: 210px;
-      box-shadow: 0 8px 22px rgba(75,31,35,.07);
-    }
-
-    .card .icon {
-      color: var(--terrier-orange);
-      font-size: 38px;
-      margin-bottom: 12px;
-    }
-
-    .card h3 {
-      margin: 0 0 8px;
-      font-size: 22px;
-      color: var(--byrd-maroon);
-      font-weight: normal;
-      letter-spacing: 1px;
-      text-transform: uppercase;
-    }
-
-    .card p {
-      margin: 0;
-      font-size: 17px;
-    }
-
-    .section-title {
-      margin: 44px 0 18px;
-      color: var(--byrd-maroon);
-      font-weight: normal;
-      letter-spacing: 3px;
-      text-transform: uppercase;
-      font-size: 26px;
-      text-align: center;
-    }
-
-    .lesson-list {
-      display: grid;
-      gap: 14px;
-    }
-
-    .lesson-row {
-      background: var(--paper);
-      border: 1px solid var(--line);
-      border-left: 8px solid var(--terrier-orange);
-      display: grid;
-      grid-template-columns: 125px 1fr auto;
-      align-items: center;
-      gap: 22px;
-      padding: 18px 22px;
-      box-shadow: 0 8px 22px rgba(75,31,35,.06);
-    }
-
-    .lesson-number {
-      background: var(--byrd-maroon);
-      color: white;
-      padding: 14px 12px;
-      text-align: center;
-      font-size: 28px;
-      font-weight: bold;
-    }
-
-    .lesson-number span {
-      display: block;
-      color: var(--terrier-orange);
-      font-size: 11px;
-      letter-spacing: 2px;
-      text-transform: uppercase;
-    }
-
-    .lesson-row h3 {
-      margin: 0 0 4px;
-      color: var(--byrd-maroon);
-      font-size: 21px;
-      text-transform: uppercase;
-      letter-spacing: 1px;
-      font-weight: normal;
-    }
-
-    .lesson-row p {
-      margin: 0;
-      color: var(--muted);
-      font-size: 16px;
-    }
-
-    .small-link {
-      color: var(--byrd-maroon);
-      text-decoration: none;
-      border: 2px solid var(--terrier-orange);
-      padding: 9px 13px;
-      text-transform: uppercase;
-      letter-spacing: 2px;
-      font-size: 12px;
-      font-weight: bold;
-      white-space: nowrap;
-    }
-
-    .small-link:hover {
-      background: var(--terrier-orange);
-      color: white;
-    }
-
-    .note {
-      margin-top: 34px;
-      background: var(--paper);
-      border-left: 8px solid var(--terrier-orange);
-      padding: 28px 34px;
-    }
-
-    .note p {
-      margin: 0;
-      color: var(--byrd-maroon);
-      font-size: 20px;
-      font-style: italic;
-    }
-
-    footer {
-      background: var(--byrd-maroon-dark);
-      color: #f8ede6;
-      text-align: center;
-      padding: 22px;
-      font-size: 14px;
-      letter-spacing: 1px;
-      border-top: 6px solid var(--terrier-orange);
-    }
-
-    @media (max-width: 1050px) {
-      header { flex-direction: column; }
-      nav { justify-content: center; }
-      .cards { grid-template-columns: repeat(2, 1fr); }
-    }
-
-    @media (max-width: 750px) {
-      .lesson-row { grid-template-columns: 1fr; }
-      .lesson-number { width: 125px; }
-      .small-link { width: fit-content; }
-    }
-
-    @media (max-width: 680px) {
-      header { padding: 22px; }
-      .brand { align-items: flex-start; }
-      .brand h1 { font-size: 30px; }
-      .brand p { font-size: 12px; letter-spacing: 2px; }
-      nav { gap: 18px; font-size: 13px; }
-      .hero { padding: 44px 24px; }
-      .hero h2 { font-size: 39px; }
-      .hero p { font-size: 18px; }
-      .cards { grid-template-columns: 1fr; }
-    }
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Welcome to English 11 | William Byrd High School</title>
+<style>
+:root{--maroon:#4b1f23;--dark:#2b1013;--orange:#f05a1a;--orange-dark:#c84312;--cream:#f8f1e6;--paper:#fffaf2;--ink:#211f22;--muted:#6f6258;--line:#ddcfc0}
+*{box-sizing:border-box}
+body{margin:0;background:var(--cream);color:var(--ink);font-family:Georgia,"Times New Roman",serif;line-height:1.5}
+.top-strip{background:var(--maroon);color:white;text-align:center;padding:8px 16px;font-size:13px;letter-spacing:2px;text-transform:uppercase;border-bottom:4px solid var(--orange)}
+header{background:var(--paper);border-bottom:1px solid var(--line);padding:24px 48px;display:flex;justify-content:space-between;align-items:center;gap:32px}
+.brand h1{margin:0;font-weight:normal;letter-spacing:5px;color:var(--maroon);font-size:36px;text-transform:uppercase}
+.brand p{margin:-4px 0 0;color:var(--orange-dark);letter-spacing:4px;font-size:14px;text-transform:uppercase;font-weight:bold}
+nav{display:flex;gap:28px;flex-wrap:wrap;justify-content:flex-end;font-size:13px;letter-spacing:2px;text-transform:uppercase;font-weight:bold}
+nav a{color:var(--ink);text-decoration:none;padding-bottom:7px;border-bottom:2px solid transparent}
+nav a.active,nav a:hover{color:var(--orange-dark);border-bottom-color:var(--orange)}
+.hero{color:white;padding:58px 7vw;background:linear-gradient(90deg,rgba(43,16,19,.98),rgba(75,31,35,.91),rgba(43,16,19,.78)),linear-gradient(135deg,#2b1013 0%,#4b1f23 50%,#1c1b21 100%);border-bottom:8px solid var(--orange)}
+.hero h2{margin:0;font-size:56px;line-height:1.04;letter-spacing:3px;font-weight:normal;text-transform:uppercase}
+.hero p{margin:16px 0 0;max-width:820px;font-size:22px;color:#ffd8bf;font-style:italic}
+main{max-width:1180px;margin:38px auto 66px;padding:0 24px}
+.overview{background:var(--paper);border:1px solid var(--line);border-left:8px solid var(--orange);padding:28px 34px;margin-bottom:28px;box-shadow:0 8px 22px rgba(75,31,35,.06)}
+.overview h2,.section-title{margin:0 0 12px;color:var(--maroon);font-weight:normal;letter-spacing:3px;text-transform:uppercase;font-size:28px;text-align:center}
+.overview p{margin:0;color:var(--muted);font-size:18px;text-align:center}
+.essential{margin-top:18px;padding-top:18px;border-top:1px solid var(--line);color:var(--maroon);font-size:19px;text-align:center;font-style:italic}
+.activity-list{display:grid;gap:18px}
+.activity-row{background:var(--paper);border:1px solid var(--line);border-left:8px solid var(--orange);display:grid;grid-template-columns:155px 1fr auto;align-items:center;gap:26px;padding:22px 26px;box-shadow:0 8px 22px rgba(75,31,35,.06)}
+.activity-number{background:var(--maroon);color:white;padding:22px 12px;text-align:center;font-size:31px;font-weight:bold;letter-spacing:1px}
+.activity-number span{display:block;color:var(--orange);font-size:12px;letter-spacing:2px;text-transform:uppercase;margin-top:4px}
+.activity-row h3{margin:0 0 6px;color:var(--maroon);font-size:25px;text-transform:uppercase;letter-spacing:1px;font-weight:normal}
+.activity-row p{margin:0;color:var(--muted);font-size:17px}
+.small-link{color:var(--maroon);text-decoration:none;border:2px solid var(--orange);padding:10px 16px;text-transform:uppercase;letter-spacing:2px;font-size:12px;font-weight:bold;white-space:nowrap}
+.small-link:hover{background:var(--orange);color:white}
+.note{margin-top:34px;background:var(--paper);border-left:8px solid var(--orange);padding:28px 34px;color:var(--maroon);font-size:20px;font-style:italic;box-shadow:0 8px 22px rgba(75,31,35,.06)}
+footer{background:var(--dark);color:#f8ede6;text-align:center;padding:22px;font-size:14px;letter-spacing:1px;border-top:6px solid var(--orange)}
+@media(max-width:900px){header{flex-direction:column}nav{justify-content:center}.activity-row{grid-template-columns:155px 1fr}.small-link{grid-column:2;width:fit-content}}
+@media(max-width:700px){header{padding:22px}.brand h1{font-size:30px}.brand p{font-size:12px;letter-spacing:2px}nav{gap:18px;font-size:13px}.hero{padding:44px 24px}.hero h2{font-size:39px}.hero p{font-size:18px}.activity-row{grid-template-columns:1fr}.activity-number{width:155px}.small-link{grid-column:auto}}
+</style>
 </head>
 <body>
-  <div class="top-strip">William Byrd High School • English 11 • Unit 0</div>
-
-  <header>
-    <div class="brand">
-      <div class="wb-mark" aria-hidden="true">WB</div>
-      <div>
-        <h1>English 11</h1>
-        <p>Classroom Community</p>
-      </div>
-    </div>
-
-    <nav aria-label="Main navigation">
-      <a href="index.html">Home</a>
-      <a href="levels.html">Levels</a>
-      <a href="english11.html" class="active">English 11</a>
-      <a href="resources.html">Resources</a>
-    </nav>
-  </header>
-
-  <section class="hero">
-    <h2>Building Our Classroom Community</h2>
-    <p>Unit 0 introduces the course, sets expectations, builds routines, and helps students begin the year with confidence.</p>
-  </section>
-
-  <main>
-    <section class="intro">
-      <h2>Unit 0 Overview</h2>
-      <p>This short opening unit helps students understand how the class works, where to find materials, how to participate, and how to begin building a respectful learning community.</p>
-    </section>
-
-    <section class="cards" aria-label="Unit 0 focus areas">
-      <article class="card">
-        <div class="icon">📋</div>
-        <h3>Expectations</h3>
-        <p>Review classroom routines, participation expectations, grading policies, make-up work, and how students can be successful.</p>
-      </article>
-
-      <article class="card">
-        <div class="icon">🤝</div>
-        <h3>Community</h3>
-        <p>Begin the year with activities that help students learn about one another, share interests, and build trust.</p>
-      </article>
-
-      <article class="card">
-        <div class="icon">💻</div>
-        <h3>Digital Tools</h3>
-        <p>Set up course folders, review Canvas expectations, organize materials, and practice accessing class resources.</p>
-      </article>
-    </section>
-
-    <h2 class="section-title">Unit 0 Activities</h2>
-
-    <section class="lesson-list" aria-label="Classroom community activities">
-      <article class="lesson-row">
-        <div class="lesson-number">01<span>Activity</span></div>
-        <div>
-          <h3>Welcome to English 11</h3>
-          <p>Course introduction, first-day expectations, class purpose, and a quick overview of what students will read, write, and discuss.</p>
-        </div>
-        <a class="small-link" href="#">Add Link</a>
-      </article>
-
-      <article class="lesson-row">
-        <div class="lesson-number">02<span>Activity</span></div>
-        <div>
-          <h3>Syllabus & Course Expectations</h3>
-          <p>Review grading, reassessment, participation, late work, attendance expectations, and student responsibilities.</p>
-        </div>
-        <a class="small-link" href="#">Add Link</a>
-      </article>
-
-      <article class="lesson-row">
-        <div class="lesson-number">03<span>Activity</span></div>
-        <div>
-          <h3>Portrait Challenge</h3>
-          <p>A low-pressure creative activity that helps students share personality, interests, and identity without requiring a traditional icebreaker.</p>
-        </div>
-        <a class="small-link" href="#">Add Link</a>
-      </article>
-
-      <article class="lesson-row">
-        <div class="lesson-number">04<span>Activity</span></div>
-        <div>
-          <h3>Digital Setup</h3>
-          <p>Set up OneDrive folders, review Canvas navigation, find class materials, and practice accessing assignments.</p>
-        </div>
-        <a class="small-link" href="#">Add Link</a>
-      </article>
-
-      <article class="lesson-row">
-        <div class="lesson-number">05<span>Activity</span></div>
-        <div>
-          <h3>Goal Setting & Reflection</h3>
-          <p>Students consider strengths, challenges, reading habits, writing goals, and what support helps them learn best.</p>
-        </div>
-        <a class="small-link" href="#">Add Link</a>
-      </article>
-    </section>
-
-    <section class="note">
-      <p>Unit 0 is designed to make the classroom feel predictable, respectful, organized, and ready for meaningful reading and writing.</p>
-    </section>
-  </main>
-
-  <footer>
-    William Byrd High School • English 11 • Unit 0: Building Our Classroom Community
-  </footer>
+<div class="top-strip">William Byrd High School • English 11</div>
+<header>
+<div class="brand"><h1>English 11</h1><p>Welcome Module</p></div>
+<nav aria-label="Main navigation"><a href="index.html">Home</a><a href="english11.html" class="active">English 11</a><a href="resources.html">Resources</a></nav>
+</header>
+<section class="hero"><h2>Welcome to English 11</h2><p>Getting started for a successful year.</p></section>
+<main>
+<section class="overview">
+<h2>Welcome to English 11</h2>
+<p>This module is designed to help students become familiar with course expectations, establish classroom routines, organize digital materials, build classroom community, and prepare for success in English 11.</p>
+<div class="essential">Essential Question: How can I set myself up for success in English 11?</div>
+</section>
+<h2 class="section-title">Activities</h2>
+<section class="activity-list" aria-label="Welcome to English 11 activities">
+<article class="activity-row"><div class="activity-number">01<span>Activity</span></div><div><h3>Welcome to English 11</h3><p>Course introduction, first-day expectations, class purpose, and a quick overview of what students will read, write, and discuss.</p></div><a class="small-link" href="#">Add Link</a></article>
+<article class="activity-row"><div class="activity-number">02<span>Activity</span></div><div><h3>Syllabus</h3><p>Course policies, grading, reassessment, attendance expectations, communication, and student responsibilities.</p></div><a class="small-link" href="#">Add Link</a></article>
+<article class="activity-row"><div class="activity-number">03<span>Activity</span></div><div><h3>Class Organization</h3><p>Canvas, OneDrive, and Synergy. Learn where assignments, files, feedback, and official grades are located.</p></div><a class="small-link" href="#">Add Link</a></article>
+<article class="activity-row"><div class="activity-number">04<span>Activity</span></div><div><h3>Class Procedures</h3><p>Daily routines, SSR, participation, assignment submission, classroom expectations, and getting help when needed.</p></div><a class="small-link" href="#">Add Link</a></article>
+<article class="activity-row"><div class="activity-number">05<span>Activity</span></div><div><h3>Portrait Challenge</h3><p>Create a visual representation of yourself and share your interests, experiences, strengths, and goals.</p></div><a class="small-link" href="#">Add Link</a></article>
+<article class="activity-row"><div class="activity-number">06<span>Activity</span></div><div><h3>Goal Setting</h3><p>Reflect on your strengths and challenges, then set goals for a successful year in English 11.</p></div><a class="small-link" href="#">Add Link</a></article>
+</section>
+<section class="note">This module is designed to help students become organized, connected, and prepared for the year.</section>
+</main>
+<footer>William Byrd High School • English 11 • Welcome Module</footer>
 </body>
 </html>
