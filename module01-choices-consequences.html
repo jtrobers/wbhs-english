@@ -1,0 +1,454 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Module 1 | Choices & Consequences</title>
+<style>
+:root{
+  --maroon:#4b1f23;
+  --dark:#2b1013;
+  --orange:#f05a1a;
+  --orange-dark:#c84312;
+  --cream:#f8f1e6;
+  --paper:#fffaf2;
+  --ink:#211f22;
+  --muted:#6f6258;
+  --line:#ddcfc0;
+  --green:#3d6b3d;
+  --blue:#315f7d;
+}
+*{box-sizing:border-box}
+body{
+  margin:0;
+  background:var(--cream);
+  color:var(--ink);
+  font-family:Georgia,"Times New Roman",serif;
+  line-height:1.5;
+}
+.top-strip{
+  background:var(--maroon);
+  color:white;
+  text-align:center;
+  padding:8px 16px;
+  font-size:13px;
+  letter-spacing:2px;
+  text-transform:uppercase;
+  border-bottom:4px solid var(--orange);
+}
+header{
+  background:var(--paper);
+  border-bottom:1px solid var(--line);
+  padding:24px 48px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:32px;
+}
+.brand h1{
+  margin:0;
+  font-weight:normal;
+  letter-spacing:5px;
+  color:var(--maroon);
+  font-size:36px;
+  text-transform:uppercase;
+}
+.brand p{
+  margin:-4px 0 0;
+  color:var(--orange-dark);
+  letter-spacing:4px;
+  font-size:14px;
+  text-transform:uppercase;
+  font-weight:bold;
+}
+nav{
+  display:flex;
+  gap:28px;
+  flex-wrap:wrap;
+  justify-content:flex-end;
+  font-size:13px;
+  letter-spacing:2px;
+  text-transform:uppercase;
+  font-weight:bold;
+}
+nav a{
+  color:var(--ink);
+  text-decoration:none;
+  padding-bottom:7px;
+  border-bottom:2px solid transparent;
+}
+nav a.active,nav a:hover{
+  color:var(--orange-dark);
+  border-bottom-color:var(--orange);
+}
+.hero{
+  color:white;
+  padding:58px 7vw;
+  background:
+    linear-gradient(90deg,rgba(43,16,19,.98),rgba(75,31,35,.91),rgba(43,16,19,.78)),
+    linear-gradient(135deg,#2b1013 0%,#4b1f23 50%,#1c1b21 100%);
+  border-bottom:8px solid var(--orange);
+  position:relative;
+  overflow:hidden;
+}
+.hero::before{
+  content:"01";
+  position:absolute;
+  right:8vw;
+  bottom:-65px;
+  font-size:230px;
+  color:rgba(255,255,255,.06);
+  font-weight:bold;
+  letter-spacing:8px;
+}
+.hero h2{
+  margin:0;
+  font-size:56px;
+  line-height:1.04;
+  letter-spacing:3px;
+  font-weight:normal;
+  text-transform:uppercase;
+  position:relative;
+  z-index:1;
+}
+.hero p{
+  margin:16px 0 0;
+  max-width:820px;
+  font-size:22px;
+  color:#ffd8bf;
+  font-style:italic;
+  position:relative;
+  z-index:1;
+}
+main{
+  max-width:1180px;
+  margin:38px auto 66px;
+  padding:0 24px;
+}
+.overview{
+  background:var(--paper);
+  border:1px solid var(--line);
+  border-left:8px solid var(--orange);
+  padding:28px 34px;
+  margin-bottom:28px;
+  box-shadow:0 8px 22px rgba(75,31,35,.06);
+}
+.overview h2,.section-title{
+  margin:0 0 12px;
+  color:var(--maroon);
+  font-weight:normal;
+  letter-spacing:3px;
+  text-transform:uppercase;
+  font-size:28px;
+  text-align:center;
+}
+.overview p{
+  margin:0;
+  color:var(--muted);
+  font-size:18px;
+  text-align:center;
+}
+.essential{
+  margin-top:18px;
+  padding-top:18px;
+  border-top:1px solid var(--line);
+  color:var(--maroon);
+  font-size:19px;
+  text-align:center;
+  font-style:italic;
+}
+.skills{
+  display:flex;
+  justify-content:center;
+  flex-wrap:wrap;
+  gap:10px;
+  margin-top:18px;
+}
+.skill{
+  border:1px solid var(--line);
+  background:rgba(240,90,26,.08);
+  color:var(--maroon);
+  padding:7px 10px;
+  font-size:12px;
+  letter-spacing:1px;
+  text-transform:uppercase;
+  font-weight:bold;
+}
+.activity-list{
+  display:grid;
+  gap:18px;
+}
+.activity-row{
+  background:var(--paper);
+  border:1px solid var(--line);
+  border-left:8px solid var(--orange);
+  display:grid;
+  grid-template-columns:155px 1fr auto;
+  align-items:center;
+  gap:26px;
+  padding:22px 26px;
+  box-shadow:0 8px 22px rgba(75,31,35,.06);
+}
+.activity-number{
+  background:var(--maroon);
+  color:white;
+  padding:20px 12px;
+  text-align:center;
+  font-size:31px;
+  font-weight:bold;
+  letter-spacing:1px;
+}
+.activity-number span{
+  display:block;
+  color:var(--orange);
+  font-size:12px;
+  letter-spacing:2px;
+  text-transform:uppercase;
+  margin-top:4px;
+}
+.activity-row h3{
+  margin:0 0 6px;
+  color:var(--maroon);
+  font-size:25px;
+  text-transform:uppercase;
+  letter-spacing:1px;
+  font-weight:normal;
+}
+.activity-row p{
+  margin:0;
+  color:var(--muted);
+  font-size:17px;
+}
+.tag{
+  display:inline-block;
+  margin-bottom:8px;
+  padding:4px 8px;
+  color:white;
+  font-size:11px;
+  letter-spacing:2px;
+  text-transform:uppercase;
+  font-weight:bold;
+}
+.formative{background:var(--blue)}
+.summative{background:var(--green)}
+.small-link{
+  color:var(--maroon);
+  text-decoration:none;
+  border:2px solid var(--orange);
+  padding:10px 16px;
+  text-transform:uppercase;
+  letter-spacing:2px;
+  font-size:12px;
+  font-weight:bold;
+  white-space:nowrap;
+}
+.small-link:hover{
+  background:var(--orange);
+  color:white;
+}
+.note{
+  margin-top:34px;
+  background:var(--paper);
+  border-left:8px solid var(--orange);
+  padding:28px 34px;
+  color:var(--maroon);
+  font-size:20px;
+  font-style:italic;
+  box-shadow:0 8px 22px rgba(75,31,35,.06);
+}
+.grade-check{
+  margin:34px 0;
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:18px;
+}
+.check-card{
+  background:var(--paper);
+  border:1px solid var(--line);
+  border-top:6px solid var(--orange);
+  padding:22px;
+  box-shadow:0 8px 22px rgba(75,31,35,.06);
+}
+.check-card h3{
+  margin:0 0 8px;
+  color:var(--maroon);
+  text-transform:uppercase;
+  letter-spacing:2px;
+  font-weight:normal;
+}
+.check-card p{
+  margin:0;
+  color:var(--muted);
+}
+footer{
+  background:var(--dark);
+  color:#f8ede6;
+  text-align:center;
+  padding:22px;
+  font-size:14px;
+  letter-spacing:1px;
+  border-top:6px solid var(--orange);
+}
+@media(max-width:900px){
+  header{flex-direction:column}
+  nav{justify-content:center}
+  .activity-row{grid-template-columns:155px 1fr}
+  .small-link{grid-column:2;width:fit-content}
+  .grade-check{grid-template-columns:1fr}
+}
+@media(max-width:700px){
+  header{padding:22px}
+  .brand h1{font-size:30px}
+  .brand p{font-size:12px;letter-spacing:2px}
+  nav{gap:18px;font-size:13px}
+  .hero{padding:44px 24px}
+  .hero h2{font-size:39px}
+  .hero p{font-size:18px}
+  .activity-row{grid-template-columns:1fr}
+  .activity-number{width:155px}
+  .small-link{grid-column:auto}
+}
+</style>
+</head>
+
+<body>
+<div class="top-strip">William Byrd High School • English 11 • Module 1</div>
+
+<header>
+  <div class="brand">
+    <h1>English 11</h1>
+    <p>Choices & Consequences</p>
+  </div>
+
+  <nav aria-label="Main navigation">
+    <a href="index.html">Home</a>
+    <a href="english11.html" class="active">English 11</a>
+    <a href="resources.html">Resources</a>
+  </nav>
+</header>
+
+<section class="hero">
+  <h2>Module 01<br><span style="color:#ff7a2b;">Choices & Consequences</span></h2>
+  <p>How do our choices shape who we become?</p>
+</section>
+
+<main>
+  <section class="overview">
+    <h2>Module Overview</h2>
+    <p>In this module, students examine how decisions can alter lives, relationships, opportunities, and futures. Through literature, discussion, writing, and reflection, students explore the consequences of both thoughtful and impulsive choices.</p>
+    <div class="essential">Essential Question: How do our choices shape who we become?</div>
+    <div class="skills">
+      <span class="skill">Making Claims</span>
+      <span class="skill">Finding Evidence</span>
+      <span class="skill">Explaining Reasoning</span>
+      <span class="skill">Character Analysis</span>
+      <span class="skill">Theme Development</span>
+      <span class="skill">Discussion</span>
+    </div>
+  </section>
+
+  <div class="grade-check">
+    <section class="check-card">
+      <h3>Formative Goal</h3>
+      <p>Build in at least five formative activities for practice, feedback, participation, reading checks, and skill development.</p>
+    </section>
+    <section class="check-card">
+      <h3>Summative Goal</h3>
+      <p>Plan for at least three summative opportunities across the course. This module can include one or more summative checks if needed.</p>
+    </section>
+  </div>
+
+  <h2 class="section-title">Activities & Assessments</h2>
+
+  <section class="activity-list" aria-label="Module 1 activities and assessments">
+
+    <article class="activity-row">
+      <div class="activity-number">01<span>Activity</span></div>
+      <div>
+        <span class="tag formative">Formative</span>
+        <h3>Long Way Down Introduction</h3>
+        <p>Students preview the central conflict, discuss choices under pressure, and begin building background for the novel.</p>
+      </div>
+      <a class="small-link" href="#">Add Link</a>
+    </article>
+
+    <article class="activity-row">
+      <div class="activity-number">02<span>Activity</span></div>
+      <div>
+        <span class="tag formative">Formative</span>
+        <h3>Floor Discussions</h3>
+        <p>Students track character interactions, choices, consequences, and evidence while reading through the elevator floors.</p>
+      </div>
+      <a class="small-link" href="#">Add Link</a>
+    </article>
+
+    <article class="activity-row">
+      <div class="activity-number">03<span>Activity</span></div>
+      <div>
+        <span class="tag formative">Formative</span>
+        <h3>Character Evidence Tracker</h3>
+        <p>Students collect evidence about character motivation, conflict, and change to prepare for discussion and writing.</p>
+      </div>
+      <a class="small-link" href="#">Add Link</a>
+    </article>
+
+    <article class="activity-row">
+      <div class="activity-number">04<span>Activity</span></div>
+      <div>
+        <span class="tag summative">Summative</span>
+        <h3>Long Way Down Reading Check</h3>
+        <p>A short assessment focused on comprehension, inference, character motivation, and key events from the novel.</p>
+      </div>
+      <a class="small-link" href="#">Add Link</a>
+    </article>
+
+    <article class="activity-row">
+      <div class="activity-number">05<span>Activity</span></div>
+      <div>
+        <span class="tag formative">Formative</span>
+        <h3>A Retrieved Reformation</h3>
+        <p>Students read a short story about second chances, identity, and whether people can truly change.</p>
+      </div>
+      <a class="small-link" href="#">Add Link</a>
+    </article>
+
+    <article class="activity-row">
+      <div class="activity-number">06<span>Activity</span></div>
+      <div>
+        <span class="tag formative">Formative</span>
+        <h3>CER Practice Paragraph</h3>
+        <p>Students make a claim, choose evidence, and explain how that evidence supports their thinking.</p>
+      </div>
+      <a class="small-link" href="#">Add Link</a>
+    </article>
+
+    <article class="activity-row">
+      <div class="activity-number">07<span>Assessment</span></div>
+      <div>
+        <span class="tag summative">Summative</span>
+        <h3>Choices & Consequences CER Response</h3>
+        <p>Students write a focused response explaining how a character's choice shaped the outcome of a text.</p>
+      </div>
+      <a class="small-link" href="#">Add Link</a>
+    </article>
+
+    <article class="activity-row">
+      <div class="activity-number">08<span>Activity</span></div>
+      <div>
+        <span class="tag formative">Formative</span>
+        <h3>Module Reflection</h3>
+        <p>Students reflect on choices, consequences, character growth, and connections to real-life decision-making.</p>
+      </div>
+      <a class="small-link" href="#">Add Link</a>
+    </article>
+
+  </section>
+
+  <section class="note">
+    This module is designed to help students analyze decision-making, understand consequences, and support ideas using textual evidence.
+  </section>
+</main>
+
+<footer>William Byrd High School • English 11 • Module 1: Choices & Consequences</footer>
+</body>
+</html>
